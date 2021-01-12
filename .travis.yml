@@ -1,11 +1,7 @@
 language: R
 warnings_are_errors: true
 sudo: required
-
-arch:
-  - amd64
-  - ppc64le
-  
+ 
 r_binary_packages: 
   - rjags 
   - R2jags
@@ -30,6 +26,7 @@ jobs:
       - PKG_FILE_NAME=$(ls -1t *.tar.gz | head -n 1)
       - travis_wait 100 R CMD check ${R_CHECK_ARGS} "${PKG_FILE_NAME}";
       os: linux
+      arch: ppc64le
  
 env:
  global:
